@@ -30,7 +30,10 @@
               <img src="<?php bloginfo('template_url') ?>/img/phone.svg" alt="" width="20px" class="mr-3"><span>Телефон:</span>
             </div>
             <div>
-              +38066-888-69-88  
+              <?php $phones = carbon_get_theme_option('crb_phones');
+              foreach ($phones as $phone): ?>
+                <span><?php echo $phone['crb_phone'] ?> </span>
+              <?php endforeach; ?> 
             </div>
           </div>
           <div class="flex items-center">
@@ -39,7 +42,10 @@
               <span>E-mail:</span>
             </div>
             <div>
-              info@dzenk.com  
+              <?php $emails = carbon_get_theme_option('crb_emails');
+              foreach ($emails as $email): ?>
+                <span><?php echo $email['crb_email'] ?> </span>
+              <?php endforeach; ?>
             </div>
           </div>
         </div>
@@ -55,7 +61,7 @@
       <div class="flex items-center justify-between flex-col md:flex-row">
         <div class="text-2xl mb-4 md:mb-0">
           <a href="<?php echo home_url(); ?>">
-            Товариство з обмеженою відповідальністю "ФЛАЙ МАНІ"  
+            <?php echo carbon_get_theme_option( 'crb_namesite' ); ?>
           </a>
         </div>
         <div>
@@ -64,7 +70,7 @@
               Код за ЄДРПОУ:   
             </div>
             <div class="w-1/2">
-              40069106
+              <?php echo carbon_get_theme_option( 'crb_edrpoy' ); ?>
             </div>  
           </div>
           <div class="flex">
@@ -72,7 +78,7 @@
               Юридична адреса:
             </div>
             <div class="w-1/2">
-              01023, м.Київ,<br>вул.Мечникова, буд.2,<br>поверх 10
+              <?php echo carbon_get_theme_option( 'crb_uraddress' ); ?>
             </div>
           </div>
         </div>

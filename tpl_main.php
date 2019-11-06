@@ -22,35 +22,35 @@ Template Name: Main
 		      <tbody>
 		      	<tr>
 		      		<td class="label">ЄДРПОУ:	</td>
-		      		<td class="value">Dva</td>
+		      		<td class="value"><?php echo carbon_get_theme_option( 'crb_edrpoy' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Назва компанії:</td>
-		      		<td class="value">ss</td>
+		      		<td class="value"><?php echo carbon_get_theme_option( 'crb_namesite' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Скорочена назва компанії:</td>
-		      		<td class="value">asdas</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_smallname' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">ПІБ керівника:</td>
-		      		<td class="value">asdas</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_pib' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Головний бухгалтер:</td>
-		      		<td class="value">asdasd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_buh' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Місто:</td>
-		      		<td class="value">ddd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_city' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Поштовий індекс:</td>
-		      		<td class="value">ffff</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_index' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Місцезнаходження:</td>
-		      		<td class="value">adasd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_place' ); ?></td>
 		      	</tr>
 		      </tbody>
 		    </table>
@@ -65,15 +65,30 @@ Template Name: Main
 		      <tbody>
 		      	<tr>
 		      		<td class="label">Контактні телефони:</td>
-		      		<td class="value">sss</td>
+		      		<td class="value">
+		      			<?php $phones = carbon_get_theme_option('crb_phones');
+	              foreach ($phones as $phone): ?>
+	                <span><?php echo $phone['crb_phone'] ?> </span>
+	              <?php endforeach; ?>
+		      		</td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Адреси електронної пошти:</td>
-		      		<td class="value">adads</td>
+		      		<td class="value">
+		      			<?php $emails = carbon_get_theme_option('crb_emails');
+	              foreach ($emails as $email): ?>
+	                <span><?php echo $email['crb_email'] ?> </span>
+	              <?php endforeach; ?>
+		      		</td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Факс:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value">
+		      			<?php $faxes = carbon_get_theme_option('crb_faxes');
+	              foreach ($faxes as $fax): ?>
+	                <span><?php echo $fax['crb_fax'] ?> </span>
+	              <?php endforeach; ?>
+		      		</td>
 		      	</tr>
 		      </tbody>
 		    </table>
@@ -88,15 +103,15 @@ Template Name: Main
 		      <tbody>
 		      	<tr>
 		      		<td class="label">Дата реєстрації:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_registration_date' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Серія:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_registration_seria' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Номер:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_registration_number' ); ?></td>
 		      	</tr>
 		      </tbody>
 		    </table>
@@ -111,19 +126,19 @@ Template Name: Main
 		      <tbody>
 		      	<tr>
 		      		<td class="label">Дата реєстрації:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_registration_two_date' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Реєстраційний номер:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_registration_two_regnumber' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Серія свідоцтва:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_registration_two_seria' ); ?></td>
 		      	</tr>
 		      	<tr>
 		      		<td class="label">Номер свідоцтва:</td>
-		      		<td class="value">asdd</td>
+		      		<td class="value"><?php echo carbon_get_the_post_meta( 'crb_registration_two_number' ); ?></td>
 		      	</tr>
 		      </tbody>
 		    </table>
@@ -138,7 +153,7 @@ Template Name: Main
 		      <tbody>
 		      	<tr>
 		      		<td>
-		      			Переказ коштів здійснюється на підставі ліцензії НБУ на переказ коштів у національній валюті без відкриття рахунків №52 від 05.12.2016. Надання коштів у позику, в тому числі і на умовах фінансового кредиту, надання послуг з факторингу, надання послуг з фінансового лізингу здійснюється на підставі ліцензії НацКомФінПослуг №1 від 15.06.2018.
+		      			<?php echo carbon_get_the_post_meta( 'crb_license' ); ?>
 		      		</td>
 		      	</tr>
 		      </tbody>
